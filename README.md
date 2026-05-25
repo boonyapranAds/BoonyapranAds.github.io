@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/28200511/README.md)
 # Boonyapran Adsatit — Portfolio
 
 A cinematic editorial portfolio site for film and television work.
@@ -7,13 +6,34 @@ A cinematic editorial portfolio site for film and television work.
 
 ```
 portfolio/
-├── index.html      ← Home (hero + showreel + featured films)
+├── index.html      ← Home (full-screen background video hero + featured films)
 ├── films.html      ← All projects with trailers and descriptions
 ├── about.html      ← Bio, education, skills, contact
 ├── style.css       ← Shared styling for all pages
-├── images/         ← Drop project stills, portrait, thumbnails here
+├── videos/         ← Background video for homepage hero
+│   └── background.mp4
+├── images/         ← All project stills, portrait, thumbnails
 └── README.md       ← This file
 ```
+
+## Changing the homepage background video
+
+The homepage hero plays `videos/background.mp4` on autoloop, muted. To swap it:
+
+1. Drop a new MP4 into the `videos/` folder (replace `background.mp4`)
+2. Also update the poster image at `images/background-poster.jpg` — a still frame that shows while the video loads
+
+**Video specs:**
+- MP4 (H.264 codec)
+- Under 15MB for fast loading (current file is 3.5MB)
+- No audio track (saves space, video is muted anyway)
+- 10–20 seconds, designed to loop seamlessly
+- 1080p or 720p
+
+To compress a video down, use [Handbrake](https://handbrake.fr) (free):
+- Preset: "Web → Gmail Large 3 Minutes 720p30"
+- Quality: RF 26-28
+- Remove audio track in the Audio tab
 
 ## How to deploy to GitHub Pages
 
