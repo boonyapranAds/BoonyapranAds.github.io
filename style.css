@@ -793,22 +793,64 @@ section {
    ============================================ */
 
 .films-intro {
-  padding-top: 10rem;
-  padding-bottom: 4rem;
+  padding-top: 12rem;
+  padding-bottom: 8rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.films-intro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('images/films-intro-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.55) saturate(0.85);
+}
+
+.films-intro::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.5) 0%,
+    rgba(10, 10, 10, 0.3) 30%,
+    rgba(10, 10, 10, 0.55) 70%,
+    rgba(10, 10, 10, 1) 100%
+  );
+}
+
+.films-intro .container {
+  position: relative;
+  z-index: 2;
 }
 
 .films-intro h1 {
   font-size: clamp(3rem, 8vw, 6rem);
   font-style: italic;
   margin-bottom: 1.5rem;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
 }
 
 .films-intro p {
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2vw, 1.75rem);
-  color: var(--ink-muted);
+  color: var(--ink);
   max-width: 60ch;
   line-height: 1.4;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7);
+}
+
+.films-intro .eyebrow {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
 }
 
 .project {
