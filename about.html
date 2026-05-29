@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
 <body>
 
@@ -68,6 +68,54 @@
             </p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BTS SLIDESHOW -->
+  <section class="bts-section">
+    <div class="container">
+      <span class="eyebrow">— On Set</span>
+      <h3>Behind the lens.</h3>
+
+      <div class="slideshow" id="bts-slideshow">
+        <div class="slideshow-slides">
+          <div class="slideshow-slide active">
+            <img src="images/about-bts-1.jpg" alt="On set — director portrait beside camera" loading="lazy" />
+          </div>
+          <div class="slideshow-slide">
+            <img src="images/about-bts-2.jpg" alt="Directing — silhouette beside camera" loading="lazy" />
+          </div>
+          <div class="slideshow-slide">
+            <img src="images/about-bts-3.jpg" alt="Hero documentary — on set with comic wall" loading="lazy" />
+          </div>
+          <div class="slideshow-slide">
+            <img src="images/about-bts-4.jpg" alt="Magnum Opus — director and sound op reviewing playback" loading="lazy" />
+          </div>
+          <div class="slideshow-slide">
+            <img src="images/about-bts-5.jpg" alt="Methin rehearsals — reading the script" loading="lazy" />
+          </div>
+          <div class="slideshow-slide">
+            <img src="images/about-bts-6.jpg" alt="On set — silhouetted moment" loading="lazy" />
+          </div>
+        </div>
+
+        <button class="slideshow-nav slideshow-prev" aria-label="Previous slide">‹</button>
+        <button class="slideshow-nav slideshow-next" aria-label="Next slide">›</button>
+
+        <div class="slideshow-bottom">
+          <span class="slideshow-counter"><span class="current">01</span> / <span class="total">06</span></span>
+          <span class="slideshow-label">Behind the scenes</span>
+        </div>
+      </div>
+
+      <div class="slideshow-dots" id="bts-dots">
+        <button class="slideshow-dot active" aria-label="Go to slide 1"></button>
+        <button class="slideshow-dot" aria-label="Go to slide 2"></button>
+        <button class="slideshow-dot" aria-label="Go to slide 3"></button>
+        <button class="slideshow-dot" aria-label="Go to slide 4"></button>
+        <button class="slideshow-dot" aria-label="Go to slide 5"></button>
+        <button class="slideshow-dot" aria-label="Go to slide 6"></button>
       </div>
     </div>
   </section>
@@ -193,6 +241,71 @@
   <footer>
     <p>© 2026 Boonyapran Adsatit · All works own copyright</p>
   </footer>
+
+  <script>
+    // BTS Slideshow
+    (function() {
+      const slideshow = document.getElementById('bts-slideshow');
+      if (!slideshow) return;
+
+      const slides = slideshow.querySelectorAll('.slideshow-slide');
+      const dots = document.querySelectorAll('#bts-dots .slideshow-dot');
+      const prevBtn = slideshow.querySelector('.slideshow-prev');
+      const nextBtn = slideshow.querySelector('.slideshow-next');
+      const counter = slideshow.querySelector('.slideshow-counter .current');
+
+      let current = 0;
+      const total = slides.length;
+
+      function show(index) {
+        // Wrap around
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+
+        current = index;
+
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        counter.textContent = String(current + 1).padStart(2, '0');
+      }
+
+      function next() { show(current + 1); }
+      function prev() { show(current - 1); }
+
+      nextBtn.addEventListener('click', next);
+      prevBtn.addEventListener('click', prev);
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => show(i));
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prev();
+        if (e.key === 'ArrowRight') next();
+      });
+
+      // Touch swipe (mobile)
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      slideshow.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      slideshow.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) next();
+          else prev();
+        }
+      }, { passive: true });
+    })();
+  </script>
 
 </body>
 </html>
