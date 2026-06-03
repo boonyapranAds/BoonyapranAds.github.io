@@ -924,6 +924,96 @@ section {
   border: none;
 }
 
+/* Inline slideshow used in place of YouTube embed */
+.project-slideshow {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.project-slideshow .slideshow {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+/* "Play" overlay button centered on slideshow — links to YouTube */
+.slideshow-play-link {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  background: rgba(10, 10, 10, 0.35);
+}
+
+.project-slideshow:hover .slideshow-play-link {
+  opacity: 1;
+}
+
+.slideshow-play-link .play-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.slideshow-play-link:hover .play-circle {
+  background: var(--accent);
+  transform: scale(1.1);
+}
+
+.slideshow-play-link .play-icon {
+  width: 0;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 22px solid var(--accent);
+  margin-left: 6px;
+  transition: border-color 0.3s var(--ease);
+}
+
+.slideshow-play-link:hover .play-icon {
+  border-left-color: var(--bg);
+}
+
+.slideshow-play-label {
+  position: absolute;
+  bottom: 4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 700px) {
+  .slideshow-play-link .play-circle {
+    width: 72px;
+    height: 72px;
+  }
+  .slideshow-play-link .play-icon {
+    border-top-width: 11px;
+    border-bottom-width: 11px;
+    border-left-width: 17px;
+  }
+  .slideshow-play-label { bottom: 3rem; font-size: 0.6rem; }
+}
+
 .project-content {
   display: grid;
   grid-template-columns: 1fr;

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=9" />
 </head>
 <body>
 
@@ -220,12 +220,37 @@
         </div>
       </div>
 
-      <div class="project-video">
-        <iframe
-          src="https://www.youtube.com/embed/mjzRJZP0Emw?rel=0&modestbranding=1"
-          title="A Story of Korn & Kaew — Trailer"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+      <div class="project-slideshow">
+        <div class="slideshow" data-youtube="https://youtu.be/MszNNrryb2M">
+          <div class="slideshow-slides">
+            <div class="slideshow-slide active"><img src="images/korn-kaew-slide-1.jpg" alt="A Story of Korn &amp; Kaew — Title" /></div>
+            <div class="slideshow-slide"><img src="images/korn-kaew-slide-2.jpg" alt="A Story of Korn &amp; Kaew — Regent's Park" /></div>
+            <div class="slideshow-slide"><img src="images/korn-kaew-slide-3.jpg" alt="A Story of Korn &amp; Kaew — Library" /></div>
+            <div class="slideshow-slide"><img src="images/korn-kaew-slide-4.jpg" alt="A Story of Korn &amp; Kaew — Run" /></div>
+            <div class="slideshow-slide"><img src="images/korn-kaew-slide-5.jpg" alt="A Story of Korn &amp; Kaew — Train" /></div>
+          </div>
+
+          <button class="slideshow-nav slideshow-prev" aria-label="Previous slide">‹</button>
+          <button class="slideshow-nav slideshow-next" aria-label="Next slide">›</button>
+
+          <a href="https://youtu.be/MszNNrryb2M" target="_blank" rel="noopener" class="slideshow-play-link" aria-label="Watch full film on YouTube">
+            <div class="play-circle"><div class="play-icon"></div></div>
+            <span class="slideshow-play-label">Watch on YouTube</span>
+          </a>
+
+          <div class="slideshow-bottom">
+            <span class="slideshow-counter"><span class="current">01</span> / <span class="total">05</span></span>
+            <span class="slideshow-label">A Story of Korn &amp; Kaew</span>
+          </div>
+        </div>
+
+        <div class="slideshow-dots">
+          <button class="slideshow-dot active" aria-label="Slide 1"></button>
+          <button class="slideshow-dot" aria-label="Slide 2"></button>
+          <button class="slideshow-dot" aria-label="Slide 3"></button>
+          <button class="slideshow-dot" aria-label="Slide 4"></button>
+          <button class="slideshow-dot" aria-label="Slide 5"></button>
+        </div>
       </div>
 
       <div class="project-content">
@@ -266,15 +291,6 @@
           </p>
         </div>
       </div>
-
-      <div class="project-stills">
-        <div class="project-still" data-placeholder="Still 01">
-          <img src="images/korn-kaew-still-1.jpg" alt="A Story of Korn & Kaew — Still" />
-        </div>
-        <div class="project-still" data-placeholder="Still 02">
-          <img src="images/korn-kaew-still-2.jpg" alt="A Story of Korn & Kaew — Still" />
-        </div>
-      </div>
     </article>
 
     <!-- MAGNUM OPUS -->
@@ -298,12 +314,37 @@
         </div>
       </div>
 
-      <div class="project-video">
-        <iframe
-          src="https://www.youtube.com/embed/Anvv5I-L-eQ?rel=0&modestbranding=1"
-          title="Magnum Opus — Trailer"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+      <div class="project-slideshow">
+        <div class="slideshow" data-youtube="https://youtu.be/Anvv5I-L-eQ">
+          <div class="slideshow-slides">
+            <div class="slideshow-slide active"><img src="images/magnum-opus-slide-1.jpg" alt="Magnum Opus — Desk" /></div>
+            <div class="slideshow-slide"><img src="images/magnum-opus-slide-2.jpg" alt="Magnum Opus — Detective" /></div>
+            <div class="slideshow-slide"><img src="images/magnum-opus-slide-3.jpg" alt="Magnum Opus — Bach" /></div>
+            <div class="slideshow-slide"><img src="images/magnum-opus-slide-4.jpg" alt="Magnum Opus — Bach Sitting" /></div>
+            <div class="slideshow-slide"><img src="images/magnum-opus-slide-5.jpg" alt="Magnum Opus — Head" /></div>
+          </div>
+
+          <button class="slideshow-nav slideshow-prev" aria-label="Previous slide">‹</button>
+          <button class="slideshow-nav slideshow-next" aria-label="Next slide">›</button>
+
+          <a href="https://youtu.be/Anvv5I-L-eQ" target="_blank" rel="noopener" class="slideshow-play-link" aria-label="Watch full film on YouTube">
+            <div class="play-circle"><div class="play-icon"></div></div>
+            <span class="slideshow-play-label">Watch on YouTube</span>
+          </a>
+
+          <div class="slideshow-bottom">
+            <span class="slideshow-counter"><span class="current">01</span> / <span class="total">05</span></span>
+            <span class="slideshow-label">Magnum Opus</span>
+          </div>
+        </div>
+
+        <div class="slideshow-dots">
+          <button class="slideshow-dot active" aria-label="Slide 1"></button>
+          <button class="slideshow-dot" aria-label="Slide 2"></button>
+          <button class="slideshow-dot" aria-label="Slide 3"></button>
+          <button class="slideshow-dot" aria-label="Slide 4"></button>
+          <button class="slideshow-dot" aria-label="Slide 5"></button>
+        </div>
       </div>
 
       <div class="project-content">
@@ -343,15 +384,6 @@
           </div>
         </div>
       </div>
-
-      <div class="project-stills">
-        <div class="project-still" data-placeholder="Still 01">
-          <img src="images/magnum-opus-still-1.jpg" alt="Magnum Opus — Still" />
-        </div>
-        <div class="project-still" data-placeholder="Still 02">
-          <img src="images/magnum-opus-still-2.jpg" alt="Magnum Opus — Still" />
-        </div>
-      </div>
     </article>
 
     <!-- HERO -->
@@ -375,12 +407,37 @@
         </div>
       </div>
 
-      <div class="project-video">
-        <iframe
-          src="https://www.youtube.com/embed/P7C2JUGBJIg?rel=0&modestbranding=1"
-          title="Hero — Documentary"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+      <div class="project-slideshow">
+        <div class="slideshow" data-youtube="https://www.youtube.com/watch?v=P7C2JUGBJIg">
+          <div class="slideshow-slides">
+            <div class="slideshow-slide active"><img src="images/hero-slide-1.jpg" alt="Hero — Turntable" /></div>
+            <div class="slideshow-slide"><img src="images/hero-slide-2.jpg" alt="Hero — Listening" /></div>
+            <div class="slideshow-slide"><img src="images/hero-slide-3.jpg" alt="Hero — Interview" /></div>
+            <div class="slideshow-slide"><img src="images/hero-slide-4.jpg" alt="Hero — Full Shot" /></div>
+            <div class="slideshow-slide"><img src="images/hero-slide-5.jpg" alt="Hero — The Alchemist" /></div>
+          </div>
+
+          <button class="slideshow-nav slideshow-prev" aria-label="Previous slide">‹</button>
+          <button class="slideshow-nav slideshow-next" aria-label="Next slide">›</button>
+
+          <a href="https://www.youtube.com/watch?v=P7C2JUGBJIg" target="_blank" rel="noopener" class="slideshow-play-link" aria-label="Watch full film on YouTube">
+            <div class="play-circle"><div class="play-icon"></div></div>
+            <span class="slideshow-play-label">Watch on YouTube</span>
+          </a>
+
+          <div class="slideshow-bottom">
+            <span class="slideshow-counter"><span class="current">01</span> / <span class="total">05</span></span>
+            <span class="slideshow-label">Hero</span>
+          </div>
+        </div>
+
+        <div class="slideshow-dots">
+          <button class="slideshow-dot active" aria-label="Slide 1"></button>
+          <button class="slideshow-dot" aria-label="Slide 2"></button>
+          <button class="slideshow-dot" aria-label="Slide 3"></button>
+          <button class="slideshow-dot" aria-label="Slide 4"></button>
+          <button class="slideshow-dot" aria-label="Slide 5"></button>
+        </div>
       </div>
 
       <div class="project-content">
@@ -413,13 +470,6 @@
           </p>
         </div>
       </div>
-
-      <div class="project-stills">
-        <div class="project-still" data-placeholder="Still 01">
-          <img src="images/hero-still-1.jpg" alt="Hero — Behind the scenes" />
-        </div>
-        <div class="project-still" data-placeholder="Still 02"></div>
-      </div>
     </article>
 
     <!-- FULL MOON -->
@@ -443,8 +493,32 @@
         </div>
       </div>
 
-      <div class="project-video" style="display: flex; align-items: center; justify-content: center; overflow: hidden;">
-        <img src="images/full-moon-thumb.jpg" alt="Full Moon — Still" style="width: 100%; height: 100%; object-fit: cover;" />
+      <div class="project-slideshow">
+        <div class="slideshow">
+          <div class="slideshow-slides">
+            <div class="slideshow-slide active"><img src="images/full-moon-slide-1.jpg" alt="Full Moon — Close-up" /></div>
+            <div class="slideshow-slide"><img src="images/full-moon-slide-2.jpg" alt="Full Moon — Cafe" /></div>
+            <div class="slideshow-slide"><img src="images/full-moon-slide-3.jpg" alt="Full Moon — Exterior" /></div>
+            <div class="slideshow-slide"><img src="images/full-moon-slide-4.jpg" alt="Full Moon — Street" /></div>
+            <div class="slideshow-slide"><img src="images/full-moon-slide-5.jpg" alt="Full Moon — OTS" /></div>
+          </div>
+
+          <button class="slideshow-nav slideshow-prev" aria-label="Previous slide">‹</button>
+          <button class="slideshow-nav slideshow-next" aria-label="Next slide">›</button>
+
+          <div class="slideshow-bottom">
+            <span class="slideshow-counter"><span class="current">01</span> / <span class="total">05</span></span>
+            <span class="slideshow-label">Full Moon</span>
+          </div>
+        </div>
+
+        <div class="slideshow-dots">
+          <button class="slideshow-dot active" aria-label="Slide 1"></button>
+          <button class="slideshow-dot" aria-label="Slide 2"></button>
+          <button class="slideshow-dot" aria-label="Slide 3"></button>
+          <button class="slideshow-dot" aria-label="Slide 4"></button>
+          <button class="slideshow-dot" aria-label="Slide 5"></button>
+        </div>
       </div>
 
       <div class="project-content">
@@ -722,7 +796,7 @@
     <article class="project" id="t">
       <div class="project-header">
         <span class="project-number">— Stage · 2026 · Upcoming</span>
-        <h2 class="project-title"><em>T</em> <span style="color: var(--ink-muted); font-style: normal; font-size: 0.55em;">— 44 นาที / 44 Minutes</span></h2>
+        <h2 class="project-title"><em>44 Minutes The Musical</em> <span style="color: var(--ink-muted); font-style: normal; font-size: 0.55em;">— Trailer · 44 นาที</span></h2>
         <div class="project-meta">
           <div class="project-meta-item">
             <span class="project-meta-label">Roles</span>
@@ -793,12 +867,31 @@
         </div>
       </div>
 
-      <div class="project-stills" style="margin-top: 0; margin-bottom: 3rem;">
-        <div class="project-still" data-placeholder="Methin Production">
-          <img src="images/methin-thumb.jpg" alt="Methin The Musical — Poster" />
+      <div class="project-slideshow">
+        <div class="slideshow">
+          <div class="slideshow-slides">
+            <div class="slideshow-slide active"><img src="images/methin-slide-1.jpg" alt="Methin The Musical — Poster" /></div>
+            <div class="slideshow-slide"><img src="images/methin-slide-2.jpg" alt="Methin The Musical — Stage" /></div>
+            <div class="slideshow-slide"><img src="images/methin-slide-3.jpg" alt="Methin The Musical — Cast" /></div>
+            <div class="slideshow-slide"><img src="images/methin-slide-4.jpg" alt="Methin The Musical — Performance" /></div>
+            <div class="slideshow-slide"><img src="images/methin-slide-5.jpg" alt="Methin The Musical — Production" /></div>
+          </div>
+
+          <button class="slideshow-nav slideshow-prev" aria-label="Previous slide">‹</button>
+          <button class="slideshow-nav slideshow-next" aria-label="Next slide">›</button>
+
+          <div class="slideshow-bottom">
+            <span class="slideshow-counter"><span class="current">01</span> / <span class="total">05</span></span>
+            <span class="slideshow-label">Methin The Musical</span>
+          </div>
         </div>
-        <div class="project-still" data-placeholder="Methin Stage">
-          <img src="images/methin-still-1.jpg" alt="Methin The Musical — Stage" />
+
+        <div class="slideshow-dots">
+          <button class="slideshow-dot active" aria-label="Slide 1"></button>
+          <button class="slideshow-dot" aria-label="Slide 2"></button>
+          <button class="slideshow-dot" aria-label="Slide 3"></button>
+          <button class="slideshow-dot" aria-label="Slide 4"></button>
+          <button class="slideshow-dot" aria-label="Slide 5"></button>
         </div>
       </div>
 
@@ -866,6 +959,61 @@
   <footer>
     <p>© 2026 Boonyapran Adsatit · All works own copyright</p>
   </footer>
+
+  <script>
+    // Initialise every .slideshow on the page independently.
+    // Each .slideshow finds its own slides, nav, dots and counter
+    // within its parent .project-slideshow wrapper.
+    document.querySelectorAll('.slideshow').forEach((slideshow) => {
+      const wrapper = slideshow.closest('.project-slideshow') || slideshow.parentElement;
+      const slides = slideshow.querySelectorAll('.slideshow-slide');
+      const dots = wrapper.querySelectorAll('.slideshow-dots .slideshow-dot');
+      const prevBtn = slideshow.querySelector('.slideshow-prev');
+      const nextBtn = slideshow.querySelector('.slideshow-next');
+      const counter = slideshow.querySelector('.slideshow-counter .current');
+
+      if (!slides.length) return;
+
+      let current = 0;
+      const total = slides.length;
+
+      function show(index) {
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+        slides[current].classList.remove('active');
+        if (dots[current]) dots[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+        if (dots[current]) dots[current].classList.add('active');
+        if (counter) counter.textContent = String(current + 1).padStart(2, '0');
+      }
+
+      function next() { show(current + 1); }
+      function prev() { show(current - 1); }
+
+      if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); next(); });
+      if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); prev(); });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); show(i); });
+      });
+
+      // Touch swipe
+      let touchStartX = 0;
+      let touchEndX = 0;
+      slideshow.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      slideshow.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) next();
+          else prev();
+        }
+      }, { passive: true });
+    });
+  </script>
 
 </body>
 </html>
