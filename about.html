@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="style.css?v=17" />
 </head>
 <body>
 
@@ -98,13 +98,16 @@
           <div class="slideshow-slide">
             <img src="images/about-bts-6.jpg" alt="Directing on a darkened stage, camera silhouette" loading="lazy" />
           </div>
+          <div class="slideshow-slide">
+            <img src="images/about-bts-7.jpg" alt="On set during the HERO shoot, relaxed between takes" loading="lazy" />
+          </div>
         </div>
 
         <button class="slideshow-nav slideshow-prev" aria-label="Previous slide">‹</button>
         <button class="slideshow-nav slideshow-next" aria-label="Next slide">›</button>
 
         <div class="slideshow-bottom">
-          <span class="slideshow-counter"><span class="current">01</span> / <span class="total">06</span></span>
+          <span class="slideshow-counter"><span class="current">01</span> / <span class="total">07</span></span>
           <span class="slideshow-label">Behind the scenes</span>
         </div>
       </div>
@@ -116,9 +119,18 @@
         <button class="slideshow-dot" aria-label="Go to slide 4"></button>
         <button class="slideshow-dot" aria-label="Go to slide 5"></button>
         <button class="slideshow-dot" aria-label="Go to slide 6"></button>
+        <button class="slideshow-dot" aria-label="Go to slide 7"></button>
       </div>
     </div>
   </section>
+
+  <!-- BTS LIGHTBOX -->
+  <div class="lightbox" id="bts-lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="bts-lightbox-close" aria-label="Close">×</button>
+    <button class="lightbox-nav lightbox-prev" id="bts-lightbox-prev" aria-label="Previous image">‹</button>
+    <img src="" alt="" id="bts-lightbox-img" />
+    <button class="lightbox-nav lightbox-next" id="bts-lightbox-next" aria-label="Next image">›</button>
+  </div>
 
   <!-- EDUCATION -->
   <section>
@@ -295,6 +307,7 @@
 
       // Keyboard navigation
       document.addEventListener('keydown', (e) => {
+        if (document.getElementById('bts-lightbox').classList.contains('open')) return;
         if (e.key === 'ArrowLeft') prev();
         if (e.key === 'ArrowRight') next();
       });
@@ -314,6 +327,73 @@
           if (diff > 0) next();
           else prev();
         }
+      }, { passive: true });
+    })();
+
+    // BTS Lightbox — full uncropped view
+    (function() {
+      const lightbox = document.getElementById('bts-lightbox');
+      if (!lightbox) return;
+
+      const lbImg = document.getElementById('bts-lightbox-img');
+      const closeBtn = document.getElementById('bts-lightbox-close');
+      const prevBtn = document.getElementById('bts-lightbox-prev');
+      const nextBtn = document.getElementById('bts-lightbox-next');
+      const imgs = Array.from(document.querySelectorAll('#bts-slideshow .slideshow-slide img'));
+
+      let idx = 0;
+
+      function render() {
+        lbImg.src = imgs[idx].src;
+        lbImg.alt = imgs[idx].alt;
+      }
+
+      function open(i) {
+        idx = i;
+        render();
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function next() { idx = (idx + 1) % imgs.length; render(); }
+      function prev() { idx = (idx - 1 + imgs.length) % imgs.length; render(); }
+
+      imgs.forEach((img, i) => {
+        img.addEventListener('click', () => open(i));
+      });
+
+      closeBtn.addEventListener('click', close);
+      nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+      prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+
+      // Click on backdrop (not the image or buttons) closes
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target === lbImg) close();
+      });
+
+      // Keyboard: Esc closes, arrows navigate (only when open)
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') prev();
+        if (e.key === 'ArrowRight') next();
+      });
+
+      // Touch swipe inside lightbox
+      let tStart = 0;
+      lightbox.addEventListener('touchstart', (e) => {
+        tStart = e.changedTouches[0].screenX;
+      }, { passive: true });
+      lightbox.addEventListener('touchend', (e) => {
+        const diff = tStart - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
       }, { passive: true });
     })();
   </script>
