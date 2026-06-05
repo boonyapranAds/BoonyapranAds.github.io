@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=17" />
+  <link rel="stylesheet" href="style.css?v=18" />
 </head>
 <body>
 
@@ -1045,6 +1045,18 @@
       const counter = slideshow.querySelector('.slideshow-counter .current');
 
       if (!slides.length) return;
+
+      // Inject a centered film title that fades in on hover.
+      // Use the project's main heading so it's the clean title only.
+      const project = slideshow.closest('.project');
+      const headingEl = project ? project.querySelector('.project-title em') : null;
+      if (headingEl && !slideshow.querySelector('.slideshow-title')) {
+        const titleEl = document.createElement('div');
+        titleEl.className = 'slideshow-title';
+        titleEl.textContent = headingEl.textContent.trim();
+        const slidesWrap = slideshow.querySelector('.slideshow-slides');
+        slideshow.insertBefore(titleEl, slidesWrap ? slidesWrap.nextSibling : null);
+      }
 
       let current = 0;
       const total = slides.length;
