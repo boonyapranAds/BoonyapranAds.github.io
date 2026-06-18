@@ -11,8 +11,8 @@
   --ink: #f5f3ee;
   --ink-muted: #a8a39a;
   --ink-faded: #6b6760;
-  --accent: #1F51FF;
-  --accent-dim: #1539b8;
+  --accent: #c8a165;
+  --accent-dim: #8a6f44;
   --rule: rgba(245, 243, 238, 0.12);
   --rule-strong: rgba(245, 243, 238, 0.3);
 
@@ -997,7 +997,7 @@ section {
   margin-top: 2rem;
   padding: 1.5rem;
   border: 1px solid var(--accent-dim);
-  background: rgba(31, 81, 255, 0.10);
+  background: rgba(200, 161, 101, 0.06);
 }
 
 .project-awards .eyebrow {
